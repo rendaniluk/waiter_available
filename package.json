@@ -1,0 +1,30 @@
+{
+  "name": "waiters_available",
+  "version": "1.0.0",
+  "description": "This web-app allows waiters to enter the days they wanna work on, and also allows manager to view waiters available.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "waiter_avialable"
+  },
+  "author": "Rendani Lukhwa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "express": "^4.15.2",
+    "express-flash": "git://github.com/RGBboy/express-flash.git",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.2",
+    "express3-handlebars": "^0.5.2",
+    "mocha": "^3.4.1",
+    "mongoose": "^4.11.5",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
