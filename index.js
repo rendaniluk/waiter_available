@@ -6,14 +6,14 @@ const flash = require('express-flash');
 const session = require('express-session');
 const WaiterRoutes = require('./appController');
 
-// const mongoURL = process.env.MONGO_DB_URL || 'mongodb://localhost/waiter_avialableDB';
+const mongoURL = process.env.MONGO_DB_URL || 'mongodb://localhost/waiter_data';
 
 
-// const Models = require('./models');
+const Models = require('./models');
 
-// const models = Models(mongoURL);
+const models = Models(mongoURL);
 
-const waiterRoutes = WaiterRoutes();
+const waiterRoutes = WaiterRoutes(models);
 
 //configuring handlebars
 app.engine('handlebars', exphbs({
@@ -42,17 +42,10 @@ app.use(session({
 }));
 app.use(flash());
 //get routes
-app.get('/waiters', waiterRoutes.index);
+app.get('/', waiterRoutes.index);
 app.get('/waiters/:username', waiterRoutes.waiterScreen);
-app.post('/waiters/:username', waiterRoutes.waiterScreen);
-
-// app.get('/admin', waiterRoutes.admin);
-// app.get('/login', waiterRoutes.login);
-// app.get('/signup', waiterRoutes.signup);
-// app.get('/profile', waiterRoutes.profile);
-
-//post routes
-// app.post('/')
+app.post('/waiters/:username', waiterRoutes.waiterdataCapture);
+app.get('/days', waiterRoutes.getWaiterData);
 
 
 app.set('port', (process.env.PORT || 5000));
