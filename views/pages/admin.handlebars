@@ -15,10 +15,22 @@
 </nav>
 
 <div class="container" align="center">
-  {{#each Admin}}
+  <table class="table table-bordered">
+      <thead>
+        <th>Waiter Names</th>
+        <th>Working days</th>
+      </thead>
+      {{#each Admin}}
+      <tbody>
+        <td>{{waiter_name}}</td>
+        <td>{{days}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  <!-- {{#each Admin}}
   {{waiter_name}}
   <li>{{days.dayName}}</li>
-  {{/each}}
+  {{/each}} -->
 
 
 </div>
