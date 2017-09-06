@@ -3,8 +3,29 @@ html{
   /*background-image: url('./waiter-1640878_1920.jpg');*/
 }
 
-.html{
+.matched{
+  background-color: green;
 }
+
+.day0{
+  background-color: red;
+}
+
+.day1{
+  background-color: blue;
+}
+
+li{
+  padding:1%;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 0.25em solid;
+  background-color:whitesmoke;
+  text-align: center;
+
+}
+
 
 .container {
     /*margin : 1em auto;*/
