@@ -5,10 +5,10 @@ module.exports = function(mongoUrl) {
 
   const waiterSchema = mongoose.Schema({
     waiter_name: String,
-    days: {
-      dayName: String,
-      working: Boolean
-    }
+    days: [{
+        dayName: String,
+        working: Boolean
+      }]
   });
 
   waiterSchema.index({

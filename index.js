@@ -50,6 +50,12 @@ app.get('/days', waiterRoutes.getWaiterData);
 
 app.set('port', (process.env.PORT || 5000));
 
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send(err.stack)
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

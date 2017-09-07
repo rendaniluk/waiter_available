@@ -21,20 +21,29 @@ module.exports = function(models) {
     var waiterName = req.params.username;
     var daysWorking = req.body.day;
 
+    let days = daysWorking.map(function(day){
+      return {
+          dayName: day,
+          working: true
+      }
+    });
+
+
     var waiter_shifts = {
       waiter_name: waiterName,
-      days: {
-        dayName: daysWorking,
-        working: true
-      }
+      days: days
     };
 
     models.waiterDays.create(waiter_shifts, function(err, results) {
+
+      console.log(arguments);
+
       console.log(results);
 
       if (err) {
         if (err.code === 11000) {
           req.flash('error', 'name exists')
+          return res.redirect("/");
         } else {
           return next(err);
         }
@@ -47,13 +56,15 @@ module.exports = function(models) {
     })
   }
 
-  var getWaiterData = function(req, res, next){
+  var getWaiterData = function(req, res, next) {
     models.waiterDays.find({}, function(err, results) {
       if (err) {
-          return next(err);
-        }else {
-res.render('pages/admin', {Admin : results})
-        }
+        return next(err);
+      } else {
+        res.render('pages/admin', {
+          Admin: results
+        })
+      }
     })
   }
 
