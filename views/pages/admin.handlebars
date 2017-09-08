@@ -32,23 +32,60 @@
 
   <table class="table table-bordered">
       <thead>
-        <th>Sunday</th>
         <th>Monday</th>
         <th>Tuesday</th>
         <th>Wednesday</th>
         <th>Thursday</th>
         <th>Friday</th>
         <th>Saturday</th>
+        <th>Sunday</th>
       </thead>
-      {{#each Admin}}
       <tbody>
-        <td>{{waiter_name}}</td>
-        <td>{{#each days}}<li>{{dayName}}{{/each}}</td>
+        <td>{{#each Monday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Tuesday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Wednesday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Thursday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Friday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Saturday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <td>{{#each Sunday}}
+
+          <li>{{this}}</li>
+
+        {{/each}}</td>
+        <!-- {{#each Tuesday}}
+        <tr>
+          <td>{{this}}</td>
+        </tr>
+        {{/each}} -->
+        <!-- <td>{{#each days}}<li>{{dayName}}{{/each}}</td> -->
       </tbody>
-      {{/each}}
     </table>
 
-  <table class="table table-bordered">
+  <!-- <table class="table table-bordered">
       <thead>
         <th>Waiter Names</th>
         <th>Working days</th>
@@ -59,5 +96,5 @@
         <td>{{#each days}}<li>{{dayName}}{{/each}}</td>
       </tbody>
       {{/each}}
-    </table>
+    </table> -->
 </div>

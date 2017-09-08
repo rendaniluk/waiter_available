@@ -21,10 +21,10 @@ module.exports = function(models) {
     var waiterName = req.params.username;
     var daysWorking = req.body.day;
 
-    let days = daysWorking.map(function(day){
+    let days = daysWorking.map(function(day) {
       return {
-          dayName: day,
-          working: true
+        dayName: day,
+        working: true
       }
     });
 
@@ -36,9 +36,9 @@ module.exports = function(models) {
 
     models.waiterDays.create(waiter_shifts, function(err, results) {
 
-      console.log(arguments);
-
-      console.log(results);
+      // console.log(arguments);
+      //
+      // console.log(results);
 
       if (err) {
         if (err.code === 11000) {
@@ -61,8 +61,46 @@ module.exports = function(models) {
       if (err) {
         return next(err);
       } else {
+        // console.log(results);
+        var monday = [];
+        var tuesday = [];
+        var wednesday = [];
+        var thursday = [];
+        var friday = [];
+        var saturday = [];
+        var sunday = [];
+
+// var weekdays = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        for (var i = 0; i < results.length; i++) {
+          var waiterData = results[i].days;
+          for (var x = 0; x < waiterData.length; x++) {
+            var modifyData = waiterData[x].dayName
+            if (modifyData == 'Monday') {
+              monday.push(results[i].waiter_name);
+            }else if (modifyData == 'Tuesday') {
+              tuesday.push(results[i].waiter_name);
+            }else if (modifyData == 'Wednesday') {
+              wednesday.push(results[i].waiter_name);
+            }else if (modifyData == 'Thursday') {
+              thursday.push(results[i].waiter_name);
+            }else if (modifyData == 'Friday') {
+              friday.push(results[i].waiter_name);
+            }else if (modifyData == 'Saturday') {
+              saturday.push(results[i].waiter_name);
+            }else if (modifyData == 'Sunday') {
+              sunday.push(results[i].waiter_name);
+            }
+          }
+        }
+        // console.log(monday,tuesday,wednesday,thursday,friday,saturday,sunday);
         res.render('pages/admin', {
-          Admin: results
+          Monday : monday,
+          Tuesday : tuesday,
+          Wednesday : wednesday,
+          Thursday : thursday,
+          Friday : friday,
+          Saturday : saturday,
+          Sunday : sunday
         })
       }
     })
