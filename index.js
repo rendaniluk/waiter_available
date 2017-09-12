@@ -46,6 +46,8 @@ app.get('/', waiterRoutes.index);
 app.get('/waiters/:username', waiterRoutes.waiterScreen);
 app.post('/waiters/:username', waiterRoutes.waiterdataCapture);
 app.get('/days', waiterRoutes.getWaiterData);
+app.get('/reset', waiterRoutes.reset);
+
 
 
 app.set('port', (process.env.PORT || 5000));

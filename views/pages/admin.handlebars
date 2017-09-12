@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
@@ -41,39 +42,39 @@
         <th>Sunday</th>
       </thead>
       <tbody>
-        <td>{{#each Monday}}
+        <td class="week">{{#each Monday}}
 
-          <li>{{this}}</li>
-
-        {{/each}}</td>
-        <td>{{#each Tuesday}}
-
-          <li>{{this}}</li>
+          <li class="list">{{this}}</li>
 
         {{/each}}</td>
-        <td>{{#each Wednesday}}
+        <td class="week">{{#each Tuesday}}
 
-          <li>{{this}}</li>
-
-        {{/each}}</td>
-        <td>{{#each Thursday}}
-
-          <li>{{this}}</li>
+          <li class="list">{{this}}</li>
 
         {{/each}}</td>
-        <td>{{#each Friday}}
+        <td class="week">{{#each Wednesday}}
 
-          <li>{{this}}</li>
-
-        {{/each}}</td>
-        <td>{{#each Saturday}}
-
-          <li>{{this}}</li>
+          <li class="list">{{this}}</li>
 
         {{/each}}</td>
-        <td>{{#each Sunday}}
+        <td class="week">{{#each Thursday}}
 
-          <li>{{this}}</li>
+          <li class="list">{{this}}</li>
+
+        {{/each}}</td>
+        <td class="week">{{#each Friday}}
+
+          <li class="list">{{this}}</li>
+
+        {{/each}}</td>
+        <td class = "week">{{#each Saturday}}
+
+          <li class="list">{{this}}</li>
+
+        {{/each}}</td>
+        <td class="week">{{#each Sunday}}
+
+          <li class="list">{{this}}</li>
 
         {{/each}}</td>
         <!-- {{#each Tuesday}}
@@ -85,15 +86,19 @@
       </tbody>
     </table>
 
+
+
+  <a href="/reset" style="text-decoration:none"><input type="button" name="" value="Reset Names"></a>
+
   <!-- <table class="table table-bordered">
       <thead>
-        <th>Waiter Names</th>
-        <th>Working days</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
       </thead>
       {{#each Admin}}
       <tbody>
         <td>{{waiter_name}}</td>
-        <td>{{#each days}}<li>{{dayName}}{{/each}}</td>
+        <td>{{waiter_name}}</td>
       </tbody>
       {{/each}}
     </table> -->
