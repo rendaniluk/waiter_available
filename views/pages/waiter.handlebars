@@ -24,14 +24,31 @@
 
   <form class="form-control" action="/waiters/{{waiterName}}" method="post">
 
-    <span><input type="checkbox" name="day" value="Monday" > Monday
+    <span>
+<label for="day" class="btn btn-outline-secondary">
+  <label class="btn btn-outline-info">
+    <input type="checkbox" name="day" value="Monday"  > Monday
+  </label>
+  <label class="btn btn-outline-info">
     <input type="checkbox" name="day" value="Tuesday" > Tuesday
-    <input type="checkbox" name="day" value="Wednesday" > Wednesday
-    <input type="checkbox" name="day" value="Thursday" > Thursday
-    <input type="checkbox" name="day" value="Friday" > Friday
-    <input type="checkbox" name="day" value="Saturday" > Saturday
-    <input type="checkbox" name="day" value="Sunday" > Sunday
-    <input type="submit" name="butt" value="Submit"> </span>
+</label>
+<label class="btn btn-outline-info">
+  <input type="checkbox" name="day" value="Wednesday" > Wednesday
+</label>
+<label class="btn btn-outline-info">
+  <input type="checkbox" name="day" value="Thursday" > Thursday
+</label>
+<label class="btn btn-outline-info">
+  <input type="checkbox" name="day" value="Friday" > Friday
+</label>
+<label class="btn btn-outline-info">
+  <input type="checkbox" name="day" value="Saturday" > Saturday
+</label>
+<label class="btn btn-outline-info">
+  <input type="checkbox" name="day" value="Sunday" > Sunday
+</label>
+<input type="submit" class="btn btn-success" name="butt" value="Submit"> </span>
+    </label>
 
     <!-- <input type="checkbox" name="day" value="Monday">Monday
 <input type="checkbox" name="day" value="Tuesday">Tuesday
@@ -49,5 +66,5 @@
     {{waiter_name}}
     <li>{{this}}</li>
   {{/each}}
-  <h1>{{messages.error}}</h1> 
+  <h1>{{messages.error}}</h1>
 </div>

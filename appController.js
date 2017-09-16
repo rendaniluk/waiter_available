@@ -39,6 +39,8 @@ module.exports = function(models) {
                 dayList.push(dy)
               }
             }
+
+
             if (dayList.length !== 0) {
               res.render('pages/waiter', {
                 msg: "Welcome back " + waiterName +
@@ -95,9 +97,10 @@ module.exports = function(models) {
                   } else {
                     waiterShiftUpdate.days = waiter_shifts.days
                     waiterShiftUpdate.save()
-                    req.flash('error',
-                      "You have successfully updated your days")
-                    res.redirect("/waiters/" + waiterShiftUpdate.waiter_name);
+                    req.flash('success',
+                      "You have successfully updated your days"
+                    )
+                    res.redirect("/waiters");
                   }
                 })
 
