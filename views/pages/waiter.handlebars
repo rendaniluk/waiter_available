@@ -13,28 +13,41 @@
 
   </div>
 </nav>
-
-
-
-<h1>{{msg}}</h1>
+<br>
+<h1>{{msg}}</h1> <br>
+<h1 align= "center">{{select}}</h1>
+<h1 align= "center">{{#each previousDays}}
+  <li>{{this}}</li>
+{{/each}}</h1> <br>
+<h1 align= "center">{{update}}</h1><br>
 <div align="center" class="">
 
   <form class="form-control" action="/waiters/{{waiterName}}" method="post">
-<span> <input type="checkbox" name="day" value="Monday">Monday
+
+    <span><input type="checkbox" name="day" value="Monday" > Monday
+    <input type="checkbox" name="day" value="Tuesday" > Tuesday
+    <input type="checkbox" name="day" value="Wednesday" > Wednesday
+    <input type="checkbox" name="day" value="Thursday" > Thursday
+    <input type="checkbox" name="day" value="Friday" > Friday
+    <input type="checkbox" name="day" value="Saturday" > Saturday
+    <input type="checkbox" name="day" value="Sunday" > Sunday
+    <input type="submit" name="butt" value="Submit"> </span>
+
+    <!-- <input type="checkbox" name="day" value="Monday">Monday
 <input type="checkbox" name="day" value="Tuesday">Tuesday
 <input type="checkbox" name="day" value="Wednesday">Wednesday
 <input type="checkbox" name="day" value="Thursday">Thursday
 <input type="checkbox" name="day" value="Friday">Friday
 <input type="checkbox" name="day" value="Saturday">Saturday
-<input type="checkbox" name="day" value="Sunday">Sunday
-<input type="submit" name="butt" value="Submit"> </span>
+<input type="checkbox" name="day" value="Sunday">Sunday -->
 
 
   </form>
+  <br>
   <h1>{{Data}}</h1><br>
   {{#each WaiteData}}
-  {{waiter_name}}
-  <li>{{this}}</li>
+    {{waiter_name}}
+    <li>{{this}}</li>
   {{/each}}
-  {{messages.error}}
+  <h1>{{messages.error}}</h1> 
 </div>

@@ -42,7 +42,10 @@ app.use(session({
 }));
 app.use(flash());
 //get routes
-app.get('/', waiterRoutes.index);
+app.get('/', function(req, res) {
+  res.redirect('/waiters')
+})
+app.get('/waiters', waiterRoutes.index);
 app.get('/waiters/:username', waiterRoutes.waiterScreen);
 app.post('/waiters/:username', waiterRoutes.waiterdataCapture);
 app.get('/days', waiterRoutes.getWaiterData);
@@ -53,7 +56,7 @@ app.get('/reset', waiterRoutes.reset);
 app.set('port', (process.env.PORT || 5000));
 
 
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   console.error(err.stack)
   res.status(500).send(err.stack)
 });
