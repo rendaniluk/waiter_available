@@ -21,7 +21,9 @@ module.exports = function(models) {
 
     ///////////////////////rendering waiter screen////////////////////
     var waiterScreen = function(req, res, next) {
-        var waiterName = req.params.username;
+        var user = req.params.username;
+        var waiterName = user.substring(0, 1).toUpperCase() + "" + user.substring(
+          1).toLowerCase()
         models.waiterDays.findOne({
           waiter_name: waiterName
         }, {
@@ -87,15 +89,15 @@ module.exports = function(models) {
                 var waiterName = req.params.username;
                 models.waiterDays.findOne({
                   waiter_name: waiter_shifts.waiter_name
-                }, function(err, updateWaiter) {
+                }, function(err, waiterShiftUpdate) {
                   if (err) {
                     return next(err)
                   } else {
-                    waiterShifUpdate.days = waiter_shifts.days
-                    waiterShifUpdate.save()
+                    waiterShiftUpdate.days = waiter_shifts.days
+                    waiterShiftUpdate.save()
                     req.flash('error',
                       "You have successfully updated your days")
-                    res.redirect("/waiters/" + waiterShifUpdate.waiter_name);
+                    res.redirect("/waiters/" + waiterShiftUpdate.waiter_name);
                   }
                 })
 
