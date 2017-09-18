@@ -14,22 +14,8 @@
   </div>
 </nav>
 
-
-
-<div class="container" align="center">
-  <br>
-  <!-- <div class="list" align="center">
-    <ul>
-            <li class="day">Sunday</li>
-            <li class="day">Monday</li>
-            <li class="day">Tuesday</li>
-            <li class="day">Wednesday</li>
-            <li class="day">Thursday</li>
-            <li class="day">Friday</li>
-            <li class="day">Saturday</li>
-</ul>
-  </div> -->
-
+<br>
+<div class="container">
   <table class="table table-bordered">
     <thead>
       <th class="bg-{{mThead}}">Monday ({{m}})</th>
@@ -39,74 +25,14 @@
       <th class="bg-{{fThead}}">Friday ({{f}})</th>
       <th class="bg-{{sThead}}">Saturday ({{s}})</th>
       <th class="bg-{{suThead}}">Sunday ({{su}})</th>
-    </thead>
-    <tbody>
-        <td>
-          {{#each Monday}}
-          <li class="list">{{this}}</li>
-          {{/each}}
-        </td>
-
-        <td>
-          {{#each Tuesday}}
-          <li class="list">{{this}}</li>
-
-          {{/each}}
-        </td>
-
-      <td >
-        {{#each Wednesday}}
-          <li class="list">{{this}}</li>
-
-        {{/each}}
-      </td>
-      <td>
-        {{#each Thursday}}
-          <li class="list">{{this}}</li>
-
-        {{/each}}
-      </td>
-      <td>
-        {{#each Friday}}
-          <li class="list">{{this}}</li>
-
-        {{/each}}
-      </td>
-      <td>
-        {{#each Saturday}}
-          <li class="list">{{this}}</li>
-
-        {{/each}}
-      </td>
-      <td>
-        {{#each Sunday}}
-          <li class="list">{{this}}</li>
-
-        {{/each}}
-      </td>
-      <!-- {{#each Tuesday}}
-        <tr>
-          <td>{{this}}</td>
-        </tr>
-        {{/each}} -->
-      <!-- <td>{{#each days}}<li>{{dayName}}{{/each}}</td> -->
-    </tbody>
-  </table>
-
-
-
-  <a href="/reset" style="text-decoration:none"><input class="btn btn-danger" type = "submit" name="" value="Reset Names"></a>
-
-  <!-- <table class="table table-bordered">
-      <thead>
-        <th>Monday</th>
-        <th>Tuesday</th>
-      </thead>
-      {{#each Admin}}
       <tbody>
-        <td>{{waiter_name}}</td>
-        <td>{{waiter_name}}</td>
+        {{#each days}}
+          <td>
+            {{#each this}}
+              <li>{{this.waiter_name}}</li>
+            {{/each}}
+          </td>
+        {{/each}}
       </tbody>
-      {{/each}}
-    </table> -->
+  </table>
 </div>
