@@ -155,6 +155,9 @@ module.exports = function(models) {
           return "success"
         }
       }
+      var overBooked = 4;
+      var underBooked = 2;
+      var normallyBooked =3;
       res.render('pages/admin', {
         days: days,
         m: monday.length,
@@ -170,7 +173,10 @@ module.exports = function(models) {
         s: saturday.length,
         sThead: colorThead(saturday.length),
         su: sunday.length,
-        suThead: colorThead(sunday.length)
+        suThead: colorThead(sunday.length),
+        oV : colorThead(overBooked),
+        uN :colorThead(underBooked),
+        nO :colorThead(normallyBooked)
       })
     });
   }

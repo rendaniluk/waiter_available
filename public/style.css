@@ -191,6 +191,9 @@ width:25%
   width: 40%;
   clear: both;
 }
+.keys{
+  width: 100%;
+}
 
 .counter {
     width: 50%;
