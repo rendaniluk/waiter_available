@@ -32,6 +32,15 @@ module.exports = function(models) {
     }, function(err, daysWorking) {
       if (daysWorking) {
         var selectedDays = daysWorking.days;
+        var previousWaiterDays = {};
+        var lastSelection = function(waiterSelection) {
+          for (var i = 0; i < selectedDays.length; i++) {
+            if (previousWaiterDays[selectedDays[i].dayName] === undefined) {
+              previousWaiterDays[selectedDays[i].dayName] = "checked";
+            }
+          }
+          return previousWaiterDays
+        }
         var dayList = [];
         for (var i = 0; i < selectedDays.length; i++) {
           var dy = selectedDays[i].dayName;
@@ -39,13 +48,14 @@ module.exports = function(models) {
             dayList.push(dy)
           }
         }
-
         if (dayList.length !== 0) {
+          lastSelection(selectedDays)
           res.render('pages/waiter', {
             msg: "Welcome back " + waiterName +
               " you previously selected this days: ",
             update: "You can change your previous selection by selecting new days to work on below",
             previousDays: dayList,
+            waiterDay: previousWaiterDays,
             waiterName
           })
         }
@@ -157,7 +167,7 @@ module.exports = function(models) {
       }
       var overBooked = 4;
       var underBooked = 2;
-      var normallyBooked =3;
+      var normallyBooked = 3;
       res.render('pages/admin', {
         days: days,
         m: monday.length,
@@ -174,9 +184,9 @@ module.exports = function(models) {
         sThead: colorThead(saturday.length),
         su: sunday.length,
         suThead: colorThead(sunday.length),
-        oV : colorThead(overBooked),
-        uN :colorThead(underBooked),
-        nO :colorThead(normallyBooked)
+        oV: colorThead(overBooked),
+        uN: colorThead(underBooked),
+        nO: colorThead(normallyBooked)
       })
     });
   }
